@@ -108,6 +108,12 @@ auto TemplateTransaction::performSendTask(const process::ExecutionContext &conte
 
 auto TemplateTransaction::send(std::chrono::system_clock::time_point timeStamp) -> void
 {
+	// See if we even have data
+	if (_pendingData.empty())
+	{
+		return;
+	}
+
 	// Take the data
 	decltype(_pendingData) data;
 	// Note: std::ranges::swap honours customization points and is thus preferrable to than std::swap
