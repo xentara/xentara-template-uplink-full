@@ -110,7 +110,7 @@ auto TemplateClient::connect(std::chrono::system_clock::time_point timeStamp) ->
 	// TODO: if your connection function throws exceptions that are not derived from std::system_error, but that
 	// still provide some sort of error code, you should catch those exceptions separately and wrap the error code in a custom
 	// error category.
-	catch (const std::exception &exception)
+	catch (const std::exception &)
 	{
 		// Get the error from the current exception using this special utility function
 		const auto error = utils::eh::currentErrorCode();

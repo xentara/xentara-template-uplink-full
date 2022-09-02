@@ -132,7 +132,7 @@ auto TemplateTransaction::send(std::chrono::system_clock::time_point timeStamp) 
 		// Fire the event
 		_sentEvent.fire();
 	}
-	catch (const std::exception &exception)
+	catch (const std::exception &)
 	{
 		// Get the error from the current exception using this special utility function
 		const auto error = utils::eh::currentErrorCode();
