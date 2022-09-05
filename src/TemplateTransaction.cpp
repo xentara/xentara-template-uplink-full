@@ -45,7 +45,7 @@ auto TemplateTransaction::loadConfig(const ConfigIntializer &initializer,
 				_records.front().loadConfig(element, resolver);
 			}
 		}
-		// TODO: load configuration parameters
+		/// @todo load custom configuration parameters
 		else if (name == u8"TODO"sv)
 		{
 			// TODO: parse the value correctly
