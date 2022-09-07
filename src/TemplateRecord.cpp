@@ -30,16 +30,16 @@ auto TemplateRecord::loadConfig(utils::json::decoder::Value &value, config::Reso
 			resolver.submit<model::GenericElement>(value, std::ref(_dataPoint));
 			dataPointLoaded = true;
 		}
-		// TODO: use something specific to the key used by the remote service, like e.g. "objectName"
+		/// @todo use something specific to the key used by the remote service, like e.g. "objectName"
 		else if (name == u8"remoteId"sv)
 		{
-			// TODO: load the remote ID using the correct type etc.
+			/// @todo load the remote ID using the correct type etc.
 			auto remoteId = value.asString<std::u8string>();
 
-			// TODO: perform more thorough validity check
+			/// @todo perform more thorough validity check
 			if (remoteId.empty())
 			{
-				// TODO: write a more specific error message
+				/// @todo write a more specific error message
 				utils::json::decoder::throwWithLocation(value, std::runtime_error("empty remote ID for template transaction record"));
 			}
 
@@ -47,20 +47,20 @@ auto TemplateRecord::loadConfig(utils::json::decoder::Value &value, config::Reso
 			_remoteId = std::move(remoteId);
 			remoteIdLoaded = true;
 		}
-		// TODO: load additional configuration parameters
+		/// @todo load additional configuration parameters
 		else if (name == u8"TODO"sv)
 		{
-			// TODO: parse the value correctly
+			/// @todo parse the value correctly
 			auto todo = value.asNumber<std::uint64_t>();
 
-			// TODO: check that the value is valid
+			/// @todo check that the value is valid
 			if (!"TODO")
 			{
-				// TODO: use an error message that tells the user exactly what is wrong
+				/// @todo use an error message that tells the user exactly what is wrong
 				utils::json::decoder::throwWithLocation(value, std::runtime_error("TODO is wrong with TODO parameter of template transaction record"));
 			}
 
-			// TODO: set the appropriate member variables, and update configAttributes accordingly (if necessary) 
+			/// @todo set the appropriate member variables, and update configAttributes accordingly (if necessary) 
 		}
 		else
 		{
@@ -78,7 +78,7 @@ auto TemplateRecord::loadConfig(utils::json::decoder::Value &value, config::Reso
 	{
 		utils::json::decoder::throwWithLocation(jsonObject, std::runtime_error("missing remote ID for template transaction record"));
 	}
-	// TODO: perform additional consistency and completeness checks
+	/// @todo perform additional consistency and completeness checks
 }
 
 auto TemplateRecord::collect(std::chrono::system_clock::time_point timeStamp, utils::core::RawDataBlock &data) const
@@ -86,19 +86,19 @@ auto TemplateRecord::collect(std::chrono::system_clock::time_point timeStamp, ut
 {
 	// Read the data
 	auto value = _valueReadHandle.read<std::u8string>();
-	// TODO: read the value as a more suitable type
+	/// @todo read the value as a more suitable type
 	auto quality = _qualityReadHandle.read<data::Quality>();
 
-	// TODO: read other attributes that should be sent
+	/// @todo read other attributes that should be sent
 
 	if (!value || ! quality)
 	{
-		// TODO: do appropriate error handling, like sending an error status for to the remote service
+		/// @todo do appropriate error handling, like sending an error status for to the remote service
 
 		return;
 	}
 
-	// TODO: encode the record and append it to the data
+	/// @todo encode the record and append it to the data
 }
 
 auto TemplateRecord::resolveHandles() -> void
@@ -124,7 +124,7 @@ auto TemplateRecord::resolveHandles() -> void
 				utils::string::cat("could not construct read handle for the quality of ", dataPoint->primaryKey(), " for template transaction record"));
 		}
 
-		// TODO: resolve read handles for other attributes that should be sent
+		/// @todo resolve read handles for other attributes that should be sent
 	}
 }
 

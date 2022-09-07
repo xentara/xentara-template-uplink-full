@@ -33,7 +33,7 @@ auto TemplateTransaction::loadConfig(const ConfigIntializer &initializer,
 	// Go through all the members of the JSON object that represents this object
 	for (auto && [name, value] : jsonObject)
     {
-		// TODO: rename member to something suitable for the specific client
+		/// @todo rename member to something suitable for the specific client
 		if (name == u8"records")
 		{
 			// Go through all the elements
@@ -48,17 +48,17 @@ auto TemplateTransaction::loadConfig(const ConfigIntializer &initializer,
 		/// @todo load custom configuration parameters
 		else if (name == u8"TODO"sv)
 		{
-			// TODO: parse the value correctly
+			/// @todo parse the value correctly
 			auto todo = value.asNumber<std::uint64_t>();
 
-			// TODO: check that the value is valid
+			/// @todo check that the value is valid
 			if (!"TODO")
 			{
-				// TODO: use an error message that tells the user exactly what is wrong
+				/// @todo use an error message that tells the user exactly what is wrong
 				utils::json::decoder::throwWithLocation(value, std::runtime_error("TODO is wrong with TODO parameter of template transaction"));
 			}
 
-			// TODO: set the appropriate member variables, and update configAttributes accordingly (if necessary) 
+			/// @todo set the appropriate member variables, and update configAttributes accordingly (if necessary) 
 		}
 		else
 		{
@@ -68,10 +68,10 @@ auto TemplateTransaction::loadConfig(const ConfigIntializer &initializer,
 		}
     }
 
-	// TODO: perform consistency and completeness checks
+	/// @todo perform consistency and completeness checks
 	if (!"TODO")
 	{
-		// TODO: use an error message that tells the user exactly what is wrong
+		/// @todo use an error message that tells the user exactly what is wrong
 		utils::json::decoder::throwWithLocation(jsonObject, std::runtime_error("TODO is wrong with template transaction"));
 	}
 }
@@ -121,9 +121,9 @@ auto TemplateTransaction::send(std::chrono::system_clock::time_point timeStamp) 
 	
 	try
 	{
-		// TODO: send the data
+		/// @todo send the data
 
-		// TODO: if the data function does not throw errors, but uses return types or internal handle state,
+		/// @todo if the data function does not throw errors, but uses return types or internal handle state,
 		// throw an std::system_error here on failure, or call handleSendError() directly.
 
 		// The write was successful
@@ -170,7 +170,7 @@ auto TemplateTransaction::updateState(std::chrono::system_clock::time_point time
 
 auto TemplateTransaction::resolveAttribute(std::u16string_view name) -> const model::Attribute *
 {
-	// TODO: add any additional attributes this class supports, including attributes inherited from the client
+	/// @todo add any additional attributes this class supports, including attributes inherited from the client
 	return model::Attribute::resolve(name,
 		attributes::kTransactionState,
 		attributes::kSendTime,
@@ -188,7 +188,7 @@ auto TemplateTransaction::resolveTask(std::u16string_view name) -> std::shared_p
 		return std::shared_ptr<process::Task>(sharedFromThis(), &_sendTask);
 	}
 
-	// TODO resolve any additional tasks
+	/// @todo resolve any additional tasks
 
 	return nullptr;
 }
@@ -205,7 +205,7 @@ auto TemplateTransaction::resolveEvent(std::u16string_view name) -> std::shared_
 		return std::shared_ptr<process::Event>(sharedFromThis(), &_sendErrorEvent);
 	}
 
-	// TODO resolve any additional events
+	/// @todo resolve any additional events
 
 	return nullptr;
 }
@@ -226,7 +226,7 @@ auto TemplateTransaction::readHandle(const model::Attribute &attribute) const no
 		return _stateDataBlock.member(&State::_error);
 	}
 
-	// TODO add support for any additional attributes, including attributes inherited from the client
+	/// @todo add support for any additional attributes, including attributes inherited from the client
 
 	return data::ReadHandle::Error::Unknown;
 }

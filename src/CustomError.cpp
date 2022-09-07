@@ -10,24 +10,28 @@ namespace xentara::plugins::templateUplink
 namespace
 {
 
-	// This is a custom error category to encapsulate ErrorCode errors in std::error_code objects
-	class ErrorCategory final : public std::error_category
+	/// @brief This is a custom error category to encapsulate @ref CustomError errors in std::error_code objects
+	class CustomErrorCategory final : public std::error_category
 	{
 	public:
-		// Override that returns a name for the category
+		
+		/// @name Virtual Overrides for std::error_category
+		/// @{
+		/// 
 		auto name() const noexcept -> const char * final;
 
-		// Override that returns an error message
 		auto message(int errorCode) const -> std::string final;
+		
+		/// @}
 	};
 
-	auto ErrorCategory::name() const noexcept -> const char *
+	auto CustomErrorCategory::name() const noexcept -> const char *
 	{
-		// TODO: Rename error cotegory
+		/// @todo Rename error cotegory
 		return "Xentara.templateUplink";
 	}
 
-	auto ErrorCategory::message(int errorCode) const -> std::string
+	auto CustomErrorCategory::message(int errorCode) const -> std::string
 	{
 		using namespace std::literals;
 
@@ -38,10 +42,10 @@ namespace
 			return "success"s;
 
 		case CustomError::NotConnected:
-			// TODO: Make error more descriptive
+			/// @todo Make error more descriptive
 			return "the client is not connected"s;
 
-		// TODO: Add messages for other error codes here
+		/// @todo Add messages for other error codes here
 
 		case CustomError::UnknownError:
 		default:
@@ -51,11 +55,10 @@ namespace
 
 } // namespace
 
-// Support automatic conversion from CustomError to std::error_code
 auto customErrorCategory() noexcept -> const std::error_category &
 {
 	// Return a static object
-	static const ErrorCategory kErrorCategory;
+	static const CustomErrorCategory kErrorCategory;
 	return kErrorCategory;
 }
 

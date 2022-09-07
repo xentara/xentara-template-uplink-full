@@ -11,16 +11,16 @@ namespace xentara::plugins::templateUplink::attributes
 
 using namespace std::literals;
 
-// TODO: assign a unique UUID
+/// @todo assign a unique UUID
 const model::Attribute kConnectionState { "dddddddd-dddd-dddd-dddd-dddddddddddd"_uuid, u"connectionState"sv, model::Attribute::Access::ReadOnly, data::DataType::kBoolean };
 
-// TODO: assign a unique UUID
+/// @todo assign a unique UUID
 const model::Attribute kTransactionState { "eeeeeeee-eeee-eeee-eeee-eeeeeeeeeeee"_uuid, u"transactionState"sv, model::Attribute::Access::ReadOnly, data::DataType::kBoolean };
 
-// TODO: assign a unique UUID
+/// @todo assign a unique UUID
 const model::Attribute kConnectionTime { "ffffffff-ffff-ffff-ffff-ffffffffffff"_uuid, u"connectionTime"sv, model::Attribute::Access::ReadOnly, data::DataType::kTimeStamp };
 
-// TODO: assign a unique UUID
+/// @todo assign a unique UUID
 const model::Attribute kSendTime { "99999999-9999-9999-9999-999999999999"_uuid, u"sendTime"sv, model::Attribute::Access::ReadOnly, data::DataType::kTimeStamp };
 
 const model::Attribute kError { model::Attribute::kError, model::Attribute::Access::ReadOnly, data::DataType::kInteger };
@@ -33,7 +33,7 @@ namespace
 	// The offset used for custom error codes
 	constexpr ErrorCode kCustomErrorOffset { kErrorCodeSliceSize };
 
-	// TODO: add more offsets for other categories of errors
+	/// @todo add more offsets for other categories of errors
 
 	// The offset used for custom error codes
 	constexpr ErrorCode kUnknownErrorCode { ErrorCode(CustomError::UnknownError) + kCustomErrorOffset };
@@ -88,7 +88,7 @@ auto errorCode(std::error_code error) noexcept -> ErrorCode
 		return errorCode(CustomError(error.value()));
 	}
 
-	// TODO: Handle other categories of errors
+	/// @todo Handle other categories of errors
 
 	// Everything else is an unknown error
 	return kUnknownErrorCode;
