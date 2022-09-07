@@ -157,7 +157,7 @@ auto TemplateClient::updateState(std::chrono::system_clock::time_point timeStamp
 	// because the memory resource might use swap-in.
 	state._connectionTime = wasConnected != connected ? timeStamp : oldState._connectionTime;
 
-	// Update the error, using NotConnected as error for a graceful disconnect
+	// Update the error code
 	state._error = attributes::errorCode(error);
 
 	// Commit the data before sending the events
@@ -240,6 +240,7 @@ auto TemplateClient::isConnectionError(std::error_code error) noexcept -> bool
 			return true;
 
 		case CustomError::NoError:
+		case CustomError::Pending:
 		default:
 			return false;
 		}

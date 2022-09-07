@@ -45,6 +45,10 @@ namespace
 			/// @todo Make error more descriptive
 			return "the client is not connected"s;
 
+		case CustomError::Pending:
+			/// @todo Make error more descriptive
+			return "the transaction has not been sent yet"s;
+
 		/// @todo Add messages for other error codes
 
 		case CustomError::UnknownError:

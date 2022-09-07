@@ -18,6 +18,9 @@ enum class CustomError
 	/// @todo change this to NotOpen for devices that are not remotely connected
 	NotConnected,
 
+	/// @brief A transaction has not been sent yet.
+	Pending,
+
 	/// @brief An unknown error occurred
 	UnknownError = 999
 };

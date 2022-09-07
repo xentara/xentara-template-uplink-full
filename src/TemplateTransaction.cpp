@@ -248,6 +248,9 @@ auto TemplateTransaction::prepare() -> void
 
 auto TemplateTransaction::clientStateChanged(std::chrono::system_clock::time_point timeStamp, std::error_code error) -> void
 {
+	// We cannot reset the error to Ok because we haven't actually sent a request yet. So we use the appropriate custom error code instead.
+	auto effectiveError = error ? error : CustomError::Pending;
+
 	// Simply update the state
 	updateState(timeStamp, error);
 }
