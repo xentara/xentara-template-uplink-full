@@ -255,7 +255,7 @@ auto TemplateTransaction::clientStateChanged(std::chrono::system_clock::time_poi
 auto TemplateTransaction::CollectTask::preparePreOperational(const process::ExecutionContext &context) -> Status
 {
 	// We don't actually need to do anything, so just tell the scheduler that it can proceed to the next
-	// stage as far as we're concered
+	// stage as far as we're concerned
 	return Status::Ready;
 }
 
