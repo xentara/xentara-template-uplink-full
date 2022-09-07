@@ -45,7 +45,7 @@ namespace
 			/// @todo Make error more descriptive
 			return "the client is not connected"s;
 
-		/// @todo Add messages for other error codes here
+		/// @todo Add messages for other error codes
 
 		case CustomError::UnknownError:
 		default:
