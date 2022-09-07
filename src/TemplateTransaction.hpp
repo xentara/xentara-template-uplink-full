@@ -144,15 +144,6 @@ private:
 		/// @name Virtual Overrides for process::Task
 		/// @{
 
-		auto stages() const -> Stages final
-		{
-			return Stage::PreOperational | Stage::Operational;
-		}
-
-		auto preparePreOperational(const process::ExecutionContext &context) -> Status final;
-
-		auto preOperational(const process::ExecutionContext &context) -> Status final;
-
 		auto operational(const process::ExecutionContext &context) -> void final;
 
 		/// @}
@@ -180,8 +171,6 @@ private:
 		}
 
 		auto preparePreOperational(const process::ExecutionContext &context) -> Status final;
-
-		auto preOperational(const process::ExecutionContext &context) -> Status final;
 
 		auto operational(const process::ExecutionContext &context) -> void final;
 
