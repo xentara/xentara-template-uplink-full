@@ -63,7 +63,7 @@ The template code has the following features:
 [src/TemplateTransaction.hpp](src/TemplateTransaction.hpp)  
 [src/TemplateTransaction.cpp](src/TemplateTransaction.cpp)
 
-The transaction microservice template provides template code for transaction that accumulate data over a period of time, and only send it to the service instance
+The transaction microservice template provides template code for transactions that accumulate data over a period of time, and only send it to the service instance
 at greater intervals.
 
 The template code has the following features:
