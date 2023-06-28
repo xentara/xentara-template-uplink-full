@@ -221,9 +221,9 @@ private:
 	/// @todo use a more appropriate type for buffering the data
 	utils::core::RawDataBlock _pendingData;
 
-	/// @brief A Xentara event that is fired when the records were successfully sent to the client
+	/// @brief A Xentara event that is raised when the records were successfully sent to the client
 	process::Event _sentEvent;
-	/// @brief A Xentara event that is fired when a send error occurred
+	/// @brief A Xentara event that is raised when a send error occurred
 	process::Event _sendErrorEvent;
 
 	/// @brief The "collect" task
