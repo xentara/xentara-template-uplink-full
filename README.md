@@ -73,9 +73,9 @@ The template code has the following features:
 - The skill element publishes a [Xentara task](https://docs.xentara.io/xentara/xentara_element_members.html#xentara_tasks) called *send*,
   which sends the collected records to the service instance.
 - The *send* task can be executed at greater intervals than the *collect* task, to collect multiple sets of records and send them to the
-  service instance as a batch
+  service instance using a single transaction
 - The skill element publishes [Xentara events](https://docs.xentara.io/xentara/xentara_element_members.html#xentara_events) to signal when
-  a record batch was sent, or if a send error occurred.
+  a transaction was sent, or if a send error occurred.
 - If a communication breakdown is detected when sending the records, the client element is notified, and all other transactions
   are set to the same error state.
 - No communication with the service instance is attempted if the connection is not up.
